@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenas Prácticas y Estándares en JavaScript</title>
+    <meta
+        name="description"
+        content="Sitio informativo sobre buenas prácticas, anti-patrones, estilo de código y herramientas de apoyo en JavaScript."
+    >
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-container">
+            <a href="#top" class="brand">
+                <span class="brand-badge">JS</span>
+                <span>Buenas Prácticas</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="#inicio">Inicio</a>
+                <a href="#practicas">Prácticas</a>
+                <a href="#errores">Anti-patrones</a>
+                <a href="#estilo">Estilo</a>
+                <a href="#herramientas">Herramientas</a>
+                <a href="#bibliografia">Bibliografía</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <p class="eyebrow">Guía informativa</p>
+                    <h1>Buenas prácticas y estándares en JavaScript</h1>
+                    <p class="hero-text">
+                        Una guía visual y estructurada sobre convenciones de nombres,
+                        organización del código, errores comunes, estilo y herramientas
+                        que ayudan a escribir JavaScript de forma más clara, mantenible
+                        y profesional.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#practicas" class="btn btn-primary">Explorar contenido</a>
+                        <a href="#herramientas" class="btn btn-secondary">Ver herramientas</a>
+                    </div>
+                </div>
+
+                <aside class="hero-panel">
+                    <div class="panel-card">
+                        <p class="panel-title">Resumen</p>
+                        <ul class="panel-list">
+                            <li>Convenciones de nombres</li>
+                            <li>Organización modular</li>
+                            <li>Legibilidad y mantenibilidad</li>
+                            <li>Errores frecuentes</li>
+                            <li>Comentarios e indentación</li>
+                            <li>Herramientas en VS Code</li>
+                        </ul>
+                    </div>
+
+                    <div class="panel-code">
+                        <div class="code-header">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <p>userService.js</p>
+                        </div>
+<pre><code>const getUserData = async (id) => {
+    const response = await fetch(`/api/users/${id}`);
+    return response.json();
+};
+
+export { getUserData };</code></pre>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section intro-section">
+            <div class="container">
+                <div class="section-heading centered">
+                    <p class="section-label">Introducción</p>
+                    <h2>¿Por qué importan las buenas prácticas?</h2>
+                    <p>
+                        Las buenas prácticas en JavaScript permiten construir código más ordenado,
+                        comprensible y sostenible en el tiempo. También favorecen el trabajo
+                        colaborativo, disminuyen errores y hacen más sencillo mantener un proyecto
+                        cuando crece.
+                    </p>
+                </div>
+
+                <div class="summary-grid">
+                    <article class="summary-card">
+                        <h3>Claridad</h3>
+                        <p>Ayudan a que el propósito del código sea fácil de entender.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Mantenimiento</h3>
+                        <p>Facilitan corregir errores y modificar funcionalidades.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Trabajo en equipo</h3>
+                        <p>Permiten que varias personas comprendan la misma base de código.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Calidad</h3>
+                        <p>Reducen malas prácticas y mejoran la consistencia del proyecto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="practicas">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Sección 1</p>
+                    <h2>Buenas prácticas generales</h2>
+                    <p>
+                        Una base sólida en JavaScript comienza con convenciones claras,
+                        estructura coherente y decisiones orientadas a la legibilidad.
+                    </p>
+                </div>
+
+                <div class="content-grid">
+                    <article class="content-card large-card">
+                        <p class="card-tag">Convenciones de nombres</p>
+                        <h3>Nombres claros y descriptivos</h3>
+                        <p>
+                            Se recomienda utilizar nombres semánticos que expresen con claridad
+                            la función de una variable, función, clase o constante.
+                            Esto reduce ambigüedades y mejora la comprensión del código.
+                        </p>
+
+                        <div class="chip-group">
+                            <span class="chip">camelCase</span>
+                            <span class="chip">PascalCase</span>
+                            <span class="chip">UPPER_CASE</span>
+                        </div>
+
+                        <div class="mini-example-grid">
+                            <div class="mini-box good">
+                                <p class="mini-title">Correcto</p>
+                                <code>calculateTotal()</code>
+                                <code>UserService</code>
+                                <code>MAX_RETRIES</code>
+                            </div>
+
+                            <div class="mini-box bad">
+                                <p class="mini-title">Evitar</p>
+                                <code>doIt()</code>
+                                <code>data2</code>
+                                <code>x</code>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="content-card">
+                        <p class="card-tag">Organización</p>
+                        <h3>Estructura modular</h3>
+                        <p>
+                            El código debe organizarse por responsabilidades, evitando archivos
+                            excesivamente largos o con múltiples funciones sin relación.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Separar lógica en módulos reutilizables.</li>
+                            <li>Usar <strong>import</strong> y <strong>export</strong>.</li>
+                            <li>Evitar archivos monolíticos.</li>
+                            <li>Mantener carpetas con propósito claro.</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <p class="card-tag">Legibilidad</p>
+                        <h3>Código fácil de leer</h3>
+                        <p>
+                            Un código bien escrito no solo funciona; también comunica su intención.
+                            La legibilidad mejora cuando hay orden visual, funciones pequeñas
+                            y nombres expresivos.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Bloques cortos y bien definidos.</li>
+                            <li>Una responsabilidad por función.</li>
+                            <li>Consistencia visual en todo el archivo.</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <p class="card-tag">Colaboración</p>
+                        <h3>Trabajo en equipo</h3>
+                        <p>
+                            En proyectos colaborativos, seguir convenciones evita confusiones,
+                            reduce el tiempo de adaptación y permite que cualquier integrante
+                            del equipo pueda continuar el trabajo con mayor facilidad.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt-section" id="errores">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Sección 2</p>
+                    <h2>Errores comunes y anti-patrones</h2>
+                    <p>
+                        Identificar qué prácticas deben evitarse es tan importante como conocer
+                        las correctas. Algunos errores son frecuentes, especialmente al iniciar.
+                    </p>
+                </div>
+
+                <div class="content-grid two-columns">
+                    <article class="content-card">
+                        <p class="card-tag">Anti-patrones</p>
+                        <h3>Prácticas que deben evitarse</h3>
+                        <ul class="feature-list">
+                            <li>Uso innecesario de <code>var</code>.</li>
+                            <li>Nombres ambiguos o poco semánticos.</li>
+                            <li>Duplicación de lógica.</li>
+                            <li>Funciones demasiado largas.</li>
+                            <li>Mezclar muchas responsabilidades en un solo archivo.</li>
+                        </ul>
+                    </article>
+
+                    <article class="content-card">
+                        <p class="card-tag">Errores frecuentes</p>
+                        <h3>Fallos comunes de principiantes</h3>
+                        <ul class="feature-list">
+                            <li>No diferenciar entre <code>const</code> y <code>let</code>.</li>
+                            <li>Olvidar el alcance de variables.</li>
+                            <li>No reutilizar funciones.</li>
+                            <li>Escribir código difícil de leer.</li>
+                            <li>Usar comentarios innecesarios o confusos.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="comparison-grid">
+                    <article class="compare-card bad">
+                        <p class="compare-label">Incorrecto</p>
+<pre><code>var x = 0;
+
+function doIt(a, b, c) {
+    // suma
+    return a + b + c;
+}</code></pre>
+                    </article>
+
+                    <article class="compare-card good">
+                        <p class="compare-label">Correcto</p>
+<pre><code>const initialValue = 0;
+
+function calculateSum(first, second, third) {
+    return first + second + third;
+}</code></pre>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="estilo">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Sección 3</p>
+                    <h2>Recomendaciones de estilo</h2>
+                    <p>
+                        El estilo del código influye en la lectura, comprensión y presentación
+                        general del proyecto. No es solo apariencia: también comunica orden.
+                    </p>
+                </div>
+
+                <div class="style-layout">
+                    <article class="style-card">
+                        <h3>Indentación</h3>
+                        <p>
+                            La indentación debe mantenerse uniforme a lo largo del archivo.
+                            Esto ayuda a distinguir bloques y mejora la estructura visual.
+                        </p>
+                    </article>
+
+                    <article class="style-card">
+                        <h3>Comentarios</h3>
+                        <p>
+                            Los comentarios deben aportar contexto o explicar decisiones,
+                            no repetir literalmente lo que el código ya muestra.
+                        </p>
+                    </article>
+
+                    <article class="style-card">
+                        <h3>Longitud de líneas</h3>
+                        <p>
+                            Mantener líneas razonables favorece la lectura y evita que el código
+                            se vuelva incómodo de revisar en pantalla.
+                        </p>
+                    </article>
+
+                    <article class="style-card">
+                        <h3>Orden lógico</h3>
+                        <p>
+                            Una estructura recomendada es: importaciones, constantes del módulo,
+                            funciones auxiliares, lógica principal y exportaciones.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section tools-section" id="herramientas">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">Sección 4</p>
+                    <h2>Herramientas de apoyo</h2>
+                    <p>
+                        Algunas herramientas ayudan a validar, formatear y mantener reglas de estilo
+                        en Visual Studio Code y en proyectos JavaScript modernos.
+                    </p>
+                </div>
+
+                <div class="tools-grid">
+                    <article class="tool-card">
+                        <h3>ESLint</h3>
+                        <p>
+                            Detecta errores, malas prácticas e inconsistencias de estilo
+                            mediante reglas configurables.
+                        </p>
+                    </article>
+
+                    <article class="tool-card">
+                        <h3>Prettier</h3>
+                        <p>
+                            Formatea automáticamente el código para mantener una presentación
+                            uniforme y limpia.
+                        </p>
+                    </article>
+
+                    <article class="tool-card">
+                        <h3>Airbnb Style Guide</h3>
+                        <p>
+                            Ofrece reglas reconocidas en la industria para escribir código
+                            consistente y profesional.
+                        </p>
+                    </article>
+
+                    <article class="tool-card">
+                        <h3>JavaScript ES6 Snippets</h3>
+                        <p>
+                            Facilita la escritura de estructuras comunes y acelera
+                            el desarrollo en el editor.
+                        </p>
+                    </article>
+                    <article class="tool-card">
+                        <h3>Extensiones en VS Code</h3>
+                        <p>
+                            Mejoran la productividad, permiten validar código y ayudan
+                            a mantener estándares de calidad.
+                        </p>
+                    </article>
+
+                    <article class="tool-card">
+                        <h3>Reglas automáticas</h3>
+                        <p>
+                            Permiten integrar buenas prácticas en el flujo de trabajo
+                            diario del desarrollador.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+       <section class="section" id="bibliografia">
+    <div class="container bibliography-container">
+        <div class="section-heading">
+            <p class="section-label">Sección 5</p>
+            <h2>Bibliografía y recursos de consulta</h2>
+            <p>
+                Fuentes de referencia utilizadas para la elaboración del contenido del sitio.
+            </p>
+        </div>
+
+        <div class="bibliography-box">
+            <h3 class="bibliography-title">Bibliografía</h3>
+
+            <ol class="bibliography-entries">
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Mozilla Developer Network. (s. f.). <em>JavaScript guide</em>.
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Mozilla Developer Network. (s. f.). <em>JavaScript error reference</em>.
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://github.com/airbnb/javascript"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Airbnb. (s. f.). <em>JavaScript style guide</em>. GitHub.
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://eslint.org/docs/latest/rules/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ESLint. (s. f.). <em>ESLint rules</em>.
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="https://code.visualstudio.com/docs/nodejs/working-with-javascript"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Microsoft. (s. f.). <em>Working with JavaScript in Visual Studio Code</em>.
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>Proyecto académico · JavaScript Style Guide</p>
+            <a href="#top" class="back-top">Volver arriba</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
